@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Call Notes</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="stage">
+
+  <!-- LEFT COLUMN -->
+  <div class="left-col">
+    <button class="icon-btn" id="addBtn" title="Add call note">
+      <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+    </button>
+    <div class="left-sep"></div>
+    <button class="icon-btn" id="upBtn" title="Previous">
+      <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+    <button class="icon-btn" id="downBtn" title="Next">-
+      <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+  </div>
+
+  <!-- CAROUSEL -->
+  <div class="carousel-outer" id="carousel">
+    <div class="peek-card peek-2" id="peek2"></div>
+    <div class="peek-card peek-1" id="peek1"></div>
+    <div class="empty-state" id="emptyState">
+      <div class="empty-icon">📵</div>
+      <span>No call notes yet</span>
+    </div>
+  </div>
+
+  <!-- COLOR DOTS -->
+  <div class="color-dots">
+    <div class="dot active-dot" style="background:#111"     data-color="#111"></div>
+    <div class="dot"            style="background:#9b5de5"  data-color="#9b5de5"></div>
+    <div class="dot"            style="background:#f77f00"  data-color="#f77f00"></div>
+    <div class="dot"            style="background:#00c896"  data-color="#00c896"></div>
+  </div>
+
+</div>
+
+<!-- MODAL -->
+<div class="overlay" id="overlay">
+  <div class="form-panel">
+    <div class="form-title">New Call</div>
+    <div class="form-group">
+      <label>Image URL</label>
+      <input type="url" id="fImg" placeholder="https://example.com/photo.jpg" />
+    </div>
+    <div class="form-group">
+      <label>Full Name</label>
+      <input type="text" id="fName" placeholder="Enter full name" />
+      <span class="err-msg" id="errName">Name required (letters only, min 2 chars).</span>
+    </div>
+    <div class="form-group">
+      <label>Home Town</label>
+      <input type="text" id="fTown" placeholder="Enter home town" />
+      <span class="err-msg" id="errTown">Home town is required.</span>
+    </div>
+    <div class="form-group">
+      <label>Purpose</label>
+      <input type="text" id="fPurpose" placeholder="e.g., Quick appointment note" />
+      <span class="err-msg" id="errPurpose">Purpose is required.</span>
+    </div>
+    <div class="form-group">
+      <label>Category</label>
+      <div class="radio-group">
+        <label class="radio-label"><input type="radio" name="category" value="Emergency" /> Emergency</label>
+        <label class="radio-label"><input type="radio" name="category" value="Important" /> Important</label>
+        <label class="radio-label"><input type="radio" name="category" value="Urgent"    /> Urgent</label>
+        <label class="radio-label"><input type="radio" name="category" value="No Rush"   /> No Rush</label>
+      </div>
+      <span class="err-msg" id="errCat">Please select a category.</span>
+    </div>
+    <div class="form-actions">
+      <button class="btn-create" id="btnCreate">Create Note</button>
+      <button class="btn-close-form" id="btnClose">Close</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
